@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'omniauth-facebook'
+gem 'toastr-rails'
 gem 'devise'
 gem 'materialize-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

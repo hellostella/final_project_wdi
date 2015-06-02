@@ -1,0 +1,10 @@
+
+<!-- Loop through Flash messages, for each will retreive alert type, -->
+<% unless flash.empty? %>
+  <script type="text/javascript">
+  <% flash.each do |x| %>
+  <% type = x[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+   toastr['<%= type %>']('<%= x[1] %>')
+   <% end %>
+  </script>
+<% end %>
