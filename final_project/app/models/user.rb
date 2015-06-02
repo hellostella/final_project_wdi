@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
 
 validates :name, presence: true, length: {maximum: 25}
 
-end
 
 def self.find_for_facebook_oauth(access_token, signed_in_resources=nil)
   data = access_token.info
@@ -21,7 +20,7 @@ def self.find_for_facebook_oauth(access_token, signed_in_resources=nil)
       return registered_user
     else
       user = User.create(
-      name: access_token.raw_info.name,
+      name: access_token.extra.raw_info.name,
       provider: access_token.provider,
       email: data.email,
       uid: access_token.uid,
@@ -30,4 +29,5 @@ def self.find_for_facebook_oauth(access_token, signed_in_resources=nil)
       )
     end
   end
+end
 end
