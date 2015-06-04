@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
   def index
-    @comments = Comment.all
+    @comments = Comment.all.order('created_at DESC')
   end
   #
   def show
@@ -26,6 +26,6 @@ end
 
   private
     def comment_params
-      params.require(:comment).permit(:content)
+      params.require(:comment).permit(:content, :address, :city)
     end
 end

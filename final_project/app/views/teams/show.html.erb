@@ -1,42 +1,51 @@
 
 
 <style>
-main {
+
+#team-info{
   background-image: url('<%= @team.image_url %>');
   background-size: cover;
 
   color: white;
 }
+.row {
+  display: inline-block;
+}
 </style>
-<div>
-<h1><%= @team.city %> <%= @team.name %> </h1>
+<div id= "image">
+  <img style="max-width:100px; max-height:500px" src= '<%= @team.image_url%>'
 </div>
+<div id= "team-info">
+<h1><%= @team.city %> <%= @team.name %> </h1>
+<h4> Current Happenings with the Team!</h4>
 <% @team.comments.each do |comment| %>
 <p>
-  <%= comment.content %><%= comment.address %>
+  <%= comment.content %> location: <%= comment.address %> at <%= comment.city %>
 </p>
 <% end %>
+</div>
 
-<div>
+<div id= "team">
   <h3>Top Pictures from around the <%= @team.name %> at the <%= @team.stadium %> Arena<h3>
     <ul>
       <% lat = @team.latitude %>
       <% long = @team.longitude %>
       <% Insta.location_tag(@team.instagram_id).each do |instagram| %>
-      <li> <% insta_img = instagram.images["low_resolution"]["url"] %>
-        <p>
-          <img style="max-width:100px; max-height:100px;" src = "<%= instagram.images["low_resolution"]["url"] %>">
-        </p>
+      <li class= "row"> <% insta_img = instagram.images["low_resolution"]["url"] %>
+        <img style="max-width:100px; max-height:100px;" src = "<%= instagram.images["low_resolution"]["url"] %>">
       </li>
       <% end %>
     </ul>
   </section>
 </div>
 <div>
+  <h3>Add Info on an Event with the Team!</h3>
   <%= form_for ([@team, @team.comments.build]) do |f| %>
   <%= f.label 'comments' %><br>
   <%= f.text_area :content %><br>
+  <%= f.label 'address' %><br>
   <%= f.text_area :address %><br>
+  <%= f.label 'Time' %><br>
   <%= f.text_area :city %><br>
   <%= f.submit %>
   <% end %>
