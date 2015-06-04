@@ -2,12 +2,12 @@
 @import "toastr";
 
 body {
-  
+  background-image: url("http://miriadna.com/desctopwalls/images/max/Madison-Square-Garden.jpg");
+  background-size: cover;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
   text-align: left;
-
 }
 
   main {

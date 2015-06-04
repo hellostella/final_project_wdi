@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'instagram'
 gem 'activeadmin', github: 'activeadmin'
 gem 'active_skin'
 gem 'omniauth-facebook'

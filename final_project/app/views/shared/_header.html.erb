@@ -17,13 +17,11 @@
     <div class= "container">
       <div class="nav-wrapper">
         <a><%= link_to "MeetTheTeam", root_path %></a>
-
         <!-- <a href="" class="brand-logo">MeetTheTeam</a> -->
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="#">Sports</a></li>
+          <li><%= link_to "Home", root_path %></li>
           <% if(!user_signed_in?) %>
-          <li><a href="#">Teams</a></li>
           <li><%= link_to "Sign Up", new_user_registration_path %></li>
           <li><%= link_to "Log In", new_user_session_path %></li>
           <% else %>
@@ -33,7 +31,6 @@
         </ul>
         <ul class="side-nav grey lighten-4 z-depth-2" id="mobile-demo">
           <li><a href="#">Sports</a></li>
-          <li><a href="#">Teams</a></li>
           <li><a href="#">Sign Up</a></li>
           <li><a href="#">Login</a></li>
           <li><a class="dropdown-button" href="#!" data-activates="dropdown2">< current_user.name %><i class="mdi-navigation-arrow-drop-down right"></i></a></li>

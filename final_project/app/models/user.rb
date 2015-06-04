@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :omniauthable
 
 validates :name, presence: true, length: {maximum: 25}
+has_many :comments
 
 
 def self.find_for_facebook_oauth(access_token, signed_in_resources=nil)

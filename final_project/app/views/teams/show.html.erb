@@ -1,25 +1,39 @@
+
+
+<style>
+body {
+  background-image: url('<%= @team.image_url %>');
+  background-size: cover;
+  color: white;
+}
+</style>
 <div>
+<h1><%= @team.city %> <%= @team.name %> </h1>
+</div>
+<% @team.comments.each do |comment| %>
+<%= comment.content %>
+<% end %>
+
+<div>
+  <%= form_for ([@team, @team.comments.build]) do |f| %>
+  <%= f.label 'comments' %><br>
+  <%= f.text_area :content %><br>
+  <%= f.submit %>
+  <% end %>
 
 </div>
 
-<style>
 
-body {
-background-image: url('<%= @team.image_url %>');
-background-size: cover;
-color: white;
-}
-
-</style>
-
-<footer class="page-footer black lighten-20 z-depth-10">
-  <div class="container">
-    <div class="row">
-      <div class="col l6 s12">
-        <h4><%= @team.city %> <%= @team.name %> </h4>
-        <p class="white-text text-lighten-4"> <%= @team.stadium %> </p>
-
-        </p>
-      </div>
-    </div>
-  </div>
+<div>
+  <h3>Top Pictures from around the <%= @team.name %> at the <%= @team.stadium %> Arena<h3>
+    <ul>
+      <% lat = @team.latitude %>
+      <% long = @team.longitude %>
+      <% Insta.location_tag(@team.instagram_id).each do |instagram| %>
+      <li> <% insta_img = instagram.images["low_resolution"]["url"] %>
+        <img style="max-width:100px; max-height:100px;" src = "<%= instagram.images["low_resolution"]["url"] %>">
+      </li>
+      <% end %>
+    </ul>
+  </section>
+</div>

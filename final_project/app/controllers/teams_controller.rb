@@ -2,15 +2,15 @@ class TeamsController < ApplicationController
   # has_many :comments
 
   def index
-    @teams = Team.all
+    if params[:search]
+      @teams = Team.search(params[:search])
+    else
+      @teams = Team.all
+    end
   end
 
   def show
     @team = Team.find(params[:id])
-    respond_to do |format|
-      format.html { render :show }
-      format.json { render json: @team }
-    end
   end
   #
   # def new
