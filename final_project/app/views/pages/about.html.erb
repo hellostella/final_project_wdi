@@ -3,6 +3,10 @@ body {
   background-image: url("http://miriadna.com/desctopwalls/images/max/Madison-Square-Garden.jpg");
   background-size: cover;
 }
+#search-form{
+  color: #fff;
+}
+
 </style>
 <!-- Search Form on Main Page- Search by Team Page to return Results and navigate to team page from there  -->
 <%= form_tag(teams_path, :method => "get", class: "navbar-form", id: "search-form") do %>

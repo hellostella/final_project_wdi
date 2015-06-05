@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   root 'pages#about'
 
+
+
   resources :teams do
     resources :comments
   end

@@ -1,5 +1,4 @@
 class TeamsController < ApplicationController
-  # has_many :comments
 
   def index
     if params[:search]
