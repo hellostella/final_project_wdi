@@ -1,6 +1,13 @@
 User Stories:
 
+A user should be able to log in 
+A user should be able to choose and successfully log in with their facebook account
+A user should have their avatar automatically assigned (via gravitar)
 A user should be able to search by team name
 A user should be able to view that teams page
-A user should be able to view autograph locations shown on a map on the teams page 
-A user should be able to comment on that teams page 
+A user should be able to comment on that teams page ]
+A user should be able to view pictures from that teams arena 
+A user should be able to view all comments for that specific team
+
+Icebox:
+A user should be able to view comments and stadium location on a map
